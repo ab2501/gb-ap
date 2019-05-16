@@ -1,18 +1,18 @@
 import unittest
-import lesson3_server
+import server
 import subprocess
 
 
 
 class Test0Parsing(unittest.TestCase):
     def testNumberParameters(self):
-        self.assertEqual(len(lesson3_server.parsing()), 3, 'Doesn''t contain three parameters needed to start')
+        self.assertEqual(len(server.parsing()), 3, 'Doesn''t contain three parameters needed to start')
         print("test 1")
         pass
 
     def testParametersAreNotNone(self):
-        self.assertNotEqual(lesson3_server.parsing()[0], None, 'IP address could not be None or Null')
-        self.assertNotEqual(lesson3_server.parsing()[1], None, 'Port number could not be None or Null')
+        self.assertNotEqual(server.parsing()[0], None, 'IP address could not be None or Null')
+        self.assertNotEqual(server.parsing()[1], None, 'Port number could not be None or Null')
         print("test 2")
         pass
 
@@ -20,7 +20,7 @@ class Test0Parsing(unittest.TestCase):
 class TestConnect(unittest.TestCase):
     def testDataAreNotNone(self):
         print("test 3")
-        params = lesson3_server.parsing()
+        params = server.parsing()
         params[2] = False
         #runresult = lesson3_server.myserverup(params)
         #print(params[0])
@@ -37,8 +37,8 @@ class TestConnect(unittest.TestCase):
             #return p.stdout
             p.kill()
             return p
-        runresult = run_command(lesson3_server.myserverup(params))
-        #runresult = (lesson3_server.myserverup(params))
+        runresult = run_command(server.myserverup(params))
+        #runresult = (server.myserverup(params))
         print(type(runresult))
         pass
         # return None
